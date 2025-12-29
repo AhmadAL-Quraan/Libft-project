@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 16:18:48 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/29 13:07:56 by aqoraan          ###   ########.fr       */
+/*   Created: 2025/12/29 14:23:42 by aqoraan           #+#    #+#             */
+/*   Updated: 2025/12/29 15:08:57 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /*
  *
- * make the new node be the first node
- * So make it points to the original (old )node and make the **lst points to the
- * new one
+ *Free the content of a node then free the memory address points to the node
  *
  * */
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (!lst || !new)
-	{
-		return ;
-	}
-	new->next_node = *lst;
-	*lst = new;
+
+#include "libft.h"
+
+void ft_lstdelone(t_list *lst, void (*del)(void *)) {
+  if (!lst || !del) {
+    return;
+  }
+  (*del)(lst->content);
+  free(lst);
 }

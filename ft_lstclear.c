@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 16:18:48 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/29 13:07:56 by aqoraan          ###   ########.fr       */
+/*   Created: 2025/12/29 15:08:13 by aqoraan           #+#    #+#             */
+/*   Updated: 2025/12/29 15:24:33 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /*
  *
- * make the new node be the first node
- * So make it points to the original (old )node and make the **lst points to the
- * new one
- *
+ *Delete the whole list
  * */
-void	ft_lstadd_front(t_list **lst, t_list *new)
+#include "libft.h"
+
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (!lst || !new)
+	t_list	*ptr;
+	t_list	*save;
+
+	if (!lst || !del || !*lst)
 	{
 		return ;
 	}
-	new->next_node = *lst;
-	*lst = new;
+	ptr = *lst;
+	while (ptr->next_node != NULL)
+	{
+		save = (*lst)->next_node;
+		ft_lstdelone(ptr, del);
+		ptr = save;
+	}
+	ft_lstdelone(ptr, del);
 }

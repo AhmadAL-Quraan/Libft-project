@@ -6,7 +6,7 @@
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 20:37:28 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/26 22:55:12 by aqoraan          ###   ########.fr       */
+/*   Updated: 2025/12/30 04:12:06 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,33 +35,27 @@ atoi("42   23") -> 42 --> make active = 1 when a number is hit [ whitespace ] [
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
-{
-	int		sign;
-	int		active;
-	long	number;
-	size_t	i;
+int ft_atoi(const char *nptr) {
+  int i;
+  int sign;
+  long res;
 
-	sign = 1;
-	active = 0;
-	number = 0;
-	i = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-		i += 1;
-	while (nptr[i])
-	{
-		if (active && !(nptr[i] >= '0' && nptr[i] <= '9'))
-			break ;
-		if ((nptr[i] >= '0' && nptr[i] <= '9') || nptr[i] == '+'
-			|| nptr[i] == '-')
-			active = 1;
-		if (nptr[i] == '-')
-			sign = -1;
-		if (nptr[i] >= '0' && nptr[i] <= '9' && active)
-			number = (number * 10) + (char)nptr[i] - '0';
-		i += 1;
-	}
-	return ((int)(number * sign));
+  sign = 1;
+  res = 0;
+  i = 0;
+  while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+    i += 1;
+  if (nptr[i] == '-' || nptr[i] == '+') {
+    if (nptr[i] == '-')
+      sign = -1;
+    i++;
+  }
+  while (nptr[i] >= '0' && nptr[i] <= '9') {
+    res = (res * 10) + (nptr[i] - '0');
+    i++;
+  }
+
+  return ((int)(res * sign));
 }
 
 // int main() {

@@ -6,7 +6,7 @@
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:18:48 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/29 13:07:56 by aqoraan          ###   ########.fr       */
+/*   Updated: 2025/12/30 03:12:30 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,12 +18,10 @@
  * new one
  *
  * */
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (!lst || !new)
-	{
-		return ;
-	}
-	new->next_node = *lst;
-	*lst = new;
+void ft_lstadd_front(t_list **lst, t_list *neww) {
+  if (!lst || !neww) {
+    return;
+  }
+  neww->next_node = *lst;
+  *lst = neww;
 }

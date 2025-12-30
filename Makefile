@@ -62,9 +62,6 @@ OBJS_B = $(SRCS_B:.c=.o)
 
 
 # To use with libft test cases saved in ~/Documents/programs/42_helping_tools/ on my personal machine
-so: $(OBJS)
-	$(CC) -shared -o libft.so $(OBJS)
-
 
 #these are commands, $< when used in the "recipe",
 #means "the first prerequisite" - the first thing after the : in the line above.
@@ -82,8 +79,8 @@ $(NAME): $(OBJS)
 # But when we say make all --> it start builds from here (first target)
 all: $(NAME)
 #for the bonus part
-bonus:	$(NAME) $(OBJS_B)
-	$(AR) $(NAME) $(OBJS_B)
+bonus: $(OBJS) $(OBJS_B)
+	$(AR) $(NAME) $(OBJS) $(OBJS_B)
 #The clean will remove all .o files
 clean:
 	$(RM) $(OBJS) $(OBJS_B)
@@ -93,6 +90,9 @@ fclean: clean
 
 	#re will do fclean and he will do the make again
 re : fclean all
+so: $(OBJS)
+	$(CC) -shared -o libft.so $(OBJS) $(OBJS_B)
+
 
 # declare the .PHONY is to tell make that (fclean, re, all, info..) are not real files
 #Because make assumes that those are real files by defualt (because make assumes that any target is a real file)

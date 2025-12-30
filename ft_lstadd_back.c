@@ -6,29 +6,26 @@
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 13:14:29 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/29 14:22:48 by aqoraan          ###   ########.fr       */
+/*   Updated: 2025/12/30 03:11:29 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*ptr;
+void ft_lstadd_back(t_list **lst, t_list *neww) {
+  t_list *ptr;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	ptr = *lst;
-	while (ptr->next_node != NULL)
-	{
-		ptr = ptr->next_node;
-	}
-	ptr->next_node = new;
+  if (!lst || !neww)
+    return;
+  if (*lst == NULL) {
+    *lst = neww;
+    return;
+  }
+  ptr = *lst;
+  while (ptr->next_node != NULL) {
+    ptr = ptr->next_node;
+  }
+  ptr->next_node = neww;
 }
 
 // int main() {

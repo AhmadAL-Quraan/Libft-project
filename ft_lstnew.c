@@ -16,16 +16,18 @@
  *
  *Make a new node in Heap and attach the content to it and next_node to NULL
  * */
-t_list *ft_lstnew(void *content) {
-  t_list *ptr;
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*ptr;
 
-  ptr = (t_list *)malloc(sizeof(t_list));
-  if (!ptr) {
-    return NULL;
-  }
-  ptr->content = content;
-  ptr->next_node = NULL;
-  return (ptr);
+	ptr = (t_list *)malloc(sizeof(t_list));
+	if (!ptr)
+	{
+		return (NULL);
+	}
+	ptr->content = content;
+	ptr->next_node = NULL;
+	return (ptr);
 }
 // int main() {
 //

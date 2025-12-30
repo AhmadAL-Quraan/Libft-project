@@ -18,10 +18,12 @@
  * new one
  *
  * */
-void ft_lstadd_front(t_list **lst, t_list *neww) {
-  if (!lst || !neww) {
-    return;
-  }
-  neww->next_node = *lst;
-  *lst = neww;
+void	ft_lstadd_front(t_list **lst, t_list *neww)
+{
+	if (!lst || !neww)
+	{
+		return ;
+	}
+	neww->next_node = *lst;
+	*lst = neww;
 }

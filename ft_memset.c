@@ -15,16 +15,22 @@
  *
  * */
 #include "libft.h"
-void *ft_memset(void *s, int c, size_t n) {
-  if (!s) {
-    return NULL;
-  }
 
-  unsigned char *ptr = (unsigned char *)s;
-  size_t idx = 0;
-  while (idx < n) {
-    ptr[idx] = c;
-    idx += 1;
-  }
-  return s;
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*ptr;
+	size_t			idx;
+
+	if (!s)
+	{
+		return (NULL);
+	}
+	ptr = (unsigned char *)s;
+	idx = 0;
+	while (idx < n)
+	{
+		ptr[idx] = c;
+		idx += 1;
+	}
+	return (s);
 }

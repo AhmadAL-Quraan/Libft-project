@@ -35,27 +35,29 @@ atoi("42   23") -> 42 --> make active = 1 when a number is hit [ whitespace ] [
 
 #include "libft.h"
 
-int ft_atoi(const char *nptr) {
-  int i;
-  int sign;
-  long res;
+int	ft_atoi(const char *nptr)
+{
+	int		i;
+	int		sign;
+	long	res;
 
-  sign = 1;
-  res = 0;
-  i = 0;
-  while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-    i += 1;
-  if (nptr[i] == '-' || nptr[i] == '+') {
-    if (nptr[i] == '-')
-      sign = -1;
-    i++;
-  }
-  while (nptr[i] >= '0' && nptr[i] <= '9') {
-    res = (res * 10) + (nptr[i] - '0');
-    i++;
-  }
-
-  return ((int)(res * sign));
+	sign = 1;
+	res = 0;
+	i = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+		i += 1;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		res = (res * 10) + (nptr[i] - '0');
+		i++;
+	}
+	return ((int)(res * sign));
 }
 
 // int main() {

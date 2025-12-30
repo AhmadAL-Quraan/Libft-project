@@ -6,7 +6,7 @@
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:04:34 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/30 04:07:41 by aqoraan          ###   ########.fr       */
+/*   Updated: 2025/12/30 04:38:23 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,33 @@
 
 #include "libft.h"
 
-char *ft_strnstr(const char *big, const char *little, size_t len) {
-  size_t i;
-  size_t j;
-  size_t fake_i;
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	size_t	fake_i;
 
-  if (*little == 0)
-    return ((char *)big);
-  i = 0;
-  fake_i = 0;
-  while (i < len && big[i]) {
-    fake_i = i;
-    j = 0;
-    if (big[i] == little[j]) {
-      while (little[j] && little[j] == big[fake_i] && big[fake_i] &&
-             fake_i < len) {
-        fake_i += 1;
-        j += 1;
-      }
-      if (little[j] == '\0')
-        return ((char *)big + i);
-    }
-    i += 1;
-  }
-  return (NULL);
+	if (*little == 0)
+		return ((char *)big);
+	i = 0;
+	fake_i = 0;
+	while (i < len && big[i])
+	{
+		fake_i = i;
+		j = 0;
+		if (big[i] == little[j])
+		{
+			while (little[j] && little[j] == big[fake_i] && big[fake_i]
+				&& fake_i++ < len)
+			{
+				j += 1;
+			}
+			if (little[j] == '\0')
+				return ((char *)big + i);
+		}
+		i += 1;
+	}
+	return (NULL);
 }
 
 // int	main(void)

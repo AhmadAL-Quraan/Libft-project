@@ -90,8 +90,8 @@ fclean: clean
 
 	#re will do fclean and he will do the make again
 re : fclean all
-so: $(OBJS)
-	$(CC) -shared -o libft.so $(OBJS) $(OBJS_B)
+# so: $(OBJS)
+# 	$(CC) -shared -o libft.so $(OBJS) $(OBJS_B)
 
 
 # declare the .PHONY is to tell make that (fclean, re, all, info..) are not real files

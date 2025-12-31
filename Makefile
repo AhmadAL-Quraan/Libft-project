@@ -74,13 +74,13 @@ OBJS_B = $(SRCS_B:.c=.o)
 #this command mean take the OBJS and put into the NAME with the commands of AR
 # This the first target that make file starts when you write "make"
 $(NAME): $(OBJS)
-		$(AR) $(NAME) $(OBJS)
+		$(AR) $(NAME) $(OBJS) $(OBJS_B)
 
 # But when we say make all --> it start builds from here (first target)
 all: $(NAME)
 #for the bonus part
-bonus: $(OBJS) $(OBJS_B)
-	$(AR) $(NAME) $(OBJS) $(OBJS_B)
+# bonus: $(OBJS) $(OBJS_B)
+# 	$(AR) $(NAME) $(OBJS) $(OBJS_B)
 #The clean will remove all .o files
 clean:
 	$(RM) $(OBJS) $(OBJS_B)

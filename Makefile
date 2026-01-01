@@ -36,13 +36,16 @@ NAME = libft.a
 #being added * Write an object-file index into the archive, or update an existing
 #one, even if noother change is made to the archive.
 #ar s on an archive is equivalent to running ranlib on it.
+# r is for replace --> if files libft.a is alread exists it replaces the old object file with the new one 
+# c for creating the lib
+# s for sort/ index to search faster 
 AR = ar rcs
 #CC is my compiler, that are called macro
 CC = cc
 # RM is remove forced
 RM = rm -f
 #The flags for the compiler
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 #I include the sources, i.e. the functions
 SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 		ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
@@ -50,16 +53,14 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 		ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c \
 		ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c \
 		ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c \
-		ft_tolower.c ft_toupper.c
+		ft_tolower.c ft_toupper.c 
 
-SRCS_B = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \
+SRCS_B=ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \
 			 ft_lstlast.c ft_lstmap.c ft_lstnew.c  ft_lstsize.c
-
 #OBJS will change .c in .o
 OBJS = $(SRCS:.c=.o)
 
-OBJS_B = $(SRCS_B:.c=.o)
-
+OBJS_B=$(SRCS_B:.c=.o)
 
 # To use with libft test cases saved in ~/Documents/programs/42_helping_tools/ on my personal machine
 
@@ -69,18 +70,16 @@ OBJS_B = $(SRCS_B:.c=.o)
 # This is called a rule target which is executed when needed
 # So when the target $(NAME) is executed, make file will search for .o file for any 
 #specifc file, then it gonna generate it from this rule if it's not exists or old
-%.o: %.c
+%.o: %.c 
 	$(CC) $(CFLAGS) -c $< -o $@
 #this command mean take the OBJS and put into the NAME with the commands of AR
 # This the first target that make file starts when you write "make"
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(OBJS_B)
 		$(AR) $(NAME) $(OBJS) $(OBJS_B)
 
 # But when we say make all --> it start builds from here (first target)
 all: $(NAME)
 #for the bonus part
-# bonus: $(OBJS) $(OBJS_B)
-# 	$(AR) $(NAME) $(OBJS) $(OBJS_B)
 #The clean will remove all .o files
 clean:
 	$(RM) $(OBJS) $(OBJS_B)
@@ -97,7 +96,7 @@ re : fclean all
 # declare the .PHONY is to tell make that (fclean, re, all, info..) are not real files
 #Because make assumes that those are real files by defualt (because make assumes that any target is a real file)
 # Also those can't be execute until called explicitly 
-.PHONY :so all clean fclean re bonus info
+.PHONY :so all clean fclean re  info
 
 info:
 	@echo "	 libft: make [info , all , bonus , clean , fclean , re]"

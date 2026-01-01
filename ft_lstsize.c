@@ -6,7 +6,7 @@
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:46:53 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/11 22:00:58 by aqoraan          ###   ########.fr       */
+/*   Updated: 2026/01/01 12:39:51 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -20,9 +20,9 @@ int	ft_lstsize(t_list *lst)
 		return (0);
 	}
 	cnt = 1;
-	while (lst->next_node != NULL)
+	while (lst->next != NULL)
 	{
-		lst = lst->next_node;
+		lst = lst->next;
 		cnt += 1;
 	}
 	return (cnt);
@@ -38,7 +38,7 @@ int	ft_lstsize(t_list *lst)
 //   y = 4;
 //   new_node = ft_lstnew((void *)&x);
 //   new_node2 = ft_lstnew((void *)&y);
-//   new_node2->next_node = NULL;
-//   new_node->next_node = new_node2;
+//   new_node2->next = NULL;
+//   new_node->next = new_node2;
 //   printf("%d", ft_lstsize(new_node));
 // }

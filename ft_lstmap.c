@@ -6,7 +6,7 @@
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 03:01:19 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/30 03:23:00 by aqoraan          ###   ########.fr       */
+/*   Updated: 2026/01/01 12:38:21 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			return (NULL);
 		}
 		ft_lstadd_back(&new_list_root, new_node);
-		lst = lst->next_node;
+		lst = lst->next;
 	}
 	return (new_list_root);
 }

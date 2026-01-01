@@ -6,7 +6,7 @@
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 13:14:29 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/30 03:11:29 by aqoraan          ###   ########.fr       */
+/*   Updated: 2026/01/01 12:37:35 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ void	ft_lstadd_back(t_list **lst, t_list *neww)
 		return ;
 	}
 	ptr = *lst;
-	while (ptr->next_node != NULL)
+	while (ptr->next != NULL)
 	{
-		ptr = ptr->next_node;
+		ptr = ptr->next;
 	}
-	ptr->next_node = neww;
+	ptr->next = neww;
 }
 
 // int main() {
 //   // node1 --> memory address to a ptr --> mem addrr of the first node
 //   t_list *node1 = ft_lstnew("hey");
 //   t_list *node2 = ft_lstnew("Helloo");
-//   node1->next_node = node2;
+//   node1->next = node2;
 //   t_list **ptr1 = &node1;
 //   t_list *node3 = ft_lstnew("here");
 //   ft_lstadd_back(ptr1, node3);

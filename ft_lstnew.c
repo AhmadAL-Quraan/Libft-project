@@ -6,7 +6,7 @@
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:11:23 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/27 09:24:48 by aqoraan          ###   ########.fr       */
+/*   Updated: 2026/01/01 12:38:31 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
  *
- *Make a new node in Heap and attach the content to it and next_node to NULL
+ *Make a new node in Heap and attach the content to it and next to NULL
  * */
 t_list	*ft_lstnew(void *content)
 {
@@ -26,7 +26,7 @@ t_list	*ft_lstnew(void *content)
 		return (NULL);
 	}
 	ptr->content = content;
-	ptr->next_node = NULL;
+	ptr->next = NULL;
 	return (ptr);
 }
 // int main() {

@@ -6,7 +6,7 @@
 /*   By: aqoraan <aqoraan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:25:05 by aqoraan           #+#    #+#             */
-/*   Updated: 2025/12/29 15:30:35 by aqoraan          ###   ########.fr       */
+/*   Updated: 2026/01/01 12:37:50 by aqoraan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	while (lst != NULL)
 	{
 		f(lst->content);
-		lst = lst->next_node;
+		lst = lst->next;
 	}
 }
